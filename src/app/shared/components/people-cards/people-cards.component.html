@@ -1,0 +1,19 @@
+<div class="people-cards">
+    <mat-grid-list cols="3" gutterSize="20px">
+      <mat-grid-tile *ngFor="let person of people">
+        <mat-card>
+          <!-- Adjusted image source -->
+          <mat-card-content>
+            <h3 mat-card-title>{{ person.name }}</h3>
+            <p mat-card-subtitle>{{ person.currentRank }}</p>
+            <p>{{ person.currentDutyTitle }}</p>
+            <p>Start Date: {{ person.careerStartDate | date }}</p>
+            <p *ngIf="person.careerEndDate">End Date: {{ person.careerEndDate | date }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" (click)="openAddDutyDialog(person.name)">Add Duty</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
